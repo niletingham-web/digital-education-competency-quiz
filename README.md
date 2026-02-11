@@ -83,8 +83,12 @@ Non-Functional Requirements
 | NFR14 | All data must be stored locally and not transmitted externally. |
 
 
-### Tech Stack Online
-To Do
+### Tech Stack Online 
+
+- [Python 3](https://docs.python.org/3/) — Core programming language. Used for all application logic, file handling, and user interaction.
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) — Desktop graphical user interface. Provides the graphical interface for entering user details and navigating quiz questions.
+- [csv](https://docs.python.org/3/library/csv.html) — Local data storage in CSV format. Stores quiz questions, answers and user data.
+- [unittest](https://docs.python.org/3/library/unittest.html) — Automated unit testing. Used for smoke tests and functional checks of pure functions.
 
 ### Code Design Document
 To do
