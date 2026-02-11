@@ -17,10 +17,10 @@ Future iterations could introduce data analysis, visualisation, customisable que
 
 ### User Experience Mapping
 
-User Personas:
+User Personas and Personas Matrix:
 
-<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/User_Personas.png" alt="User Personas" width="500">
+<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/User_Personas.png" alt="User Personas" width="300"><img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/Persona_Matrix.png" alt="User Personas" width="1500">
 
-Personas MAtrix:
 
-<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/Persona_Matrix.png" alt="User Personas" width="1500">
+
+
