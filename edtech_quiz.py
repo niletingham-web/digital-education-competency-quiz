@@ -2,37 +2,81 @@ import csv
 import tkinter as tk
 from tkinter import messagebox
 
-def save_details(filename, name, school):
-    header = ["name", "school"]
+def load_questions(filename):
+    with open(filename, newline='', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+
+def save_results(filename, name, school, answers):
+    header = ["name", "school"] + [f"Q{i+1}" for i in range(len(answers))]
 
     try:
-        with open(filename, "x", newline='', encoding="utf-8") as f:
+        with open(filename, "x", newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(header)
     except FileExistsError:
         pass
 
-    with open(filename, "a", newline='', encoding="utf-8") as f:
+    with open(filename, "a", newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow([name, school])
+        writer.writerow([name, school] + answers)
 
-def submit_details():
+def start_quiz():
     name = name_var.get().strip()
     school = school_var.get().strip()
 
     if name == "" or school == "":
-        messagebox.showwarning("Missing information", "Please enter both your name and school.")
+        messagebox.showwarning("Missing info", "Please enter your name and school.")
         return
 
-    save_details("user_details.csv", name, school)
-    messagebox.showinfo("Saved", "Your details have been saved.")
+    show_question(0, [])
+
+def show_question(question_number, answers_so_far):
+    for widget in root.winfo_children():
+        widget.destroy()
+
+    question = questions[question_number]
+
+    tk.Label(root, text=f"Question {question_number + 1}: {question['question']}").pack(anchor="w")
+
+    choice_var.set("")
+
+    for option in ["a", "b", "c", "d"]:
+        text = f"{option.upper()}: {question[option]}"
+        tk.Radiobutton(root, text=text, variable=choice_var, value=option).pack(anchor="w")
+
+    tk.Button(
+        root,
+        text="Next",
+        command=lambda: next_question(question_number, answers_so_far)
+    ).pack(pady=10)
+
+def next_question(question_number, answers_so_far):
+    selected = choice_var.get()
+
+    if selected == "":
+        messagebox.showwarning("No answer", "Please select an answer.")
+        return
+
+    new_answers = answers_so_far + [selected]
+
+    if question_number + 1 < len(questions):
+        show_question(question_number + 1, new_answers)
+    else:
+        finish_quiz(new_answers)
+
+def finish_quiz(all_answers):
+    save_results("results.csv", name_var.get(), school_var.get(), all_answers)
+    messagebox.showinfo("Done", "Your answers have been saved.")
     root.destroy()
 
+questions = load_questions("questions.csv")
+
 root = tk.Tk()
-root.title("EdTech Details Form")
+root.title("EdTech Quiz")
 
 name_var = tk.StringVar()
 school_var = tk.StringVar()
+choice_var = tk.StringVar()
 
 tk.Label(root, text="Enter your name:").pack()
 tk.Entry(root, textvariable=name_var).pack()
@@ -40,6 +84,6 @@ tk.Entry(root, textvariable=name_var).pack()
 tk.Label(root, text="Enter your school:").pack()
 tk.Entry(root, textvariable=school_var).pack()
 
-tk.Button(root, text="Submit", command=submit_details).pack(pady=10)
+tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
 
 root.mainloop()
