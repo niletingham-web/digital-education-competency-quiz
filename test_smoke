@@ -1,0 +1,8 @@
+import os
+from edtech_quiz import load_questions, save_results
+
+def test_load_questions():
+
+  assert isinstance(questions, list)
+  assert len(questions) > 0
+  assert "question" in questions[0]
