@@ -12,3 +12,15 @@ Validation rules and GUI prompts ensure that users provide valid information, in
 Because the purpose of the app is to gather insight rather than assess performance, no score or correct answers are shown at the end. This avoids implying a pass or fail and keeps the focus on supportive development.
 
 Future iterations could introduce data analysis, visualisation, customisable questions, differentiated access levels and enhanced accessibility features. The MVP keeps scope intentionally limited to core functionality, enabling rapid deployment, early user feedback, stakeholder confidence and a clear direction for future development.
+
+## Design
+
+### User Experience Mapping
+
+User Personas:
+
+<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/User_Personas.png" alt="User Personas" width="500">
+
+Personas MAtrix:
+
+<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/Persona_Matrix.png" alt="User Personas" width="1500">
