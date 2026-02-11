@@ -69,21 +69,22 @@ def finish_quiz(all_answers):
     messagebox.showinfo("Done", "Your answers have been saved.")
     root.destroy()
 
-questions = load_questions("questions.csv")
+if __name__ == "__main__":
+    questions = load_questions("questions.csv")
 
-root = tk.Tk()
-root.title("EdTech Quiz")
+    root = tk.Tk()
+    root.title("EdTech Quiz")
 
-name_var = tk.StringVar()
-school_var = tk.StringVar()
-choice_var = tk.StringVar()
+    name_var = tk.StringVar()
+    school_var = tk.StringVar()
+    choice_var = tk.StringVar()
 
-tk.Label(root, text="Enter your name:").pack()
-tk.Entry(root, textvariable=name_var).pack()
+    tk.Label(root, text="Enter your name:").pack()
+    tk.Entry(root, textvariable=name_var).pack()
 
-tk.Label(root, text="Enter your school:").pack()
-tk.Entry(root, textvariable=school_var).pack()
+    tk.Label(root, text="Enter your school:").pack()
+    tk.Entry(root, textvariable=school_var).pack()
 
-tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
+    tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
 
-root.mainloop()
+    root.mainloop()
