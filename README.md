@@ -1,4 +1,4 @@
-# digital-education-competency-quiz
+# Digital Education Competency Quiz
 A fun and practical quiz that focuses on practical, everyday digital platforms and behaviours for education staff.
 
 ## Introduction
@@ -23,7 +23,7 @@ User Personas:
 
 Below is my User Persona Map. I have created six personas that can be broadly applied to individuals working across the education sector. The names have been selected carefully to avoid implying bias related to gender, age or ethnicity. Each persona includes an overarching tagline and a more detailed description. Developing this User Persona Map is valuable because it helps shape the design of my application and can support the DfE in planning future training and guidance for schools.
 
-<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/User_Personas.png" alt="User Personas" width="300">
+<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/User_Personas.png" alt="User Personas" width="400">
 
 Personas Matrix:
 
@@ -31,6 +31,61 @@ The next item is the User Persona Matrix. This takes the personality profiles fr
 
 <img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/Persona_Matrix.png" alt="User Personas" width="1500">
 
+### GUI Prototyping
+
+(Need to make and embed)
+
+### Accessibility Assessment
+
+(Need to do and incorporate things I've put into func and non-func requirements
+
+### Functional and Non-Functional Requirements 
+
+Functional Requirements
+
+| ID   | Requirement |
+|------|-------------|
+| FR1  | The application must allow a participant to enter their name. |
+| FR2  | The application must allow a participant to enter their school name. |
+| FR3  | The application must validate that both fields are completed before starting the quiz. |
+| FR4  | The application must load quiz questions from a CSV file. |
+| FR5  | The application must display one question at a time. |
+| FR6  | The application must show four answer options (A, B, C, D). |
+| FR7  | The application must allow the participant to select exactly one answer per question. |
+| FR8  | The application must prevent the participant from progressing without selecting an answer. |
+| FR9  | The application must move to the next question after an answer is submitted. |
+| FR10 | The application must record all selected answers in order. |
+| FR11 | The application must detect when the final question has been answered. |
+| FR12 | The application must save the participant’s name, school, and answers to a CSV file. |
+| FR13 | The application must create the results file with a header if it does not already exist. |
+| FR14 | The application must append new results without overwriting previous entries. |
+| FR15 | The application must show warnings for missing information or missing answers. |
+| FR16 | The application must show a confirmation message when results are saved. |
+| FR17 | The application must close the quiz window after completion. |
+
+Non-Functional Requirements
+
+| ID    | Requirement |
+|-------|-------------|
+| NFR1  | The interface must be simple and easy for non-technical users to understand. |
+| NFR2  | All labels, buttons, and text fields must be clearly visible and readable. |
+| NFR3  | The system must handle missing or malformed CSV files gracefully. |
+| NFR4  | The system must not crash if the results file already exists. |
+| NFR5  | Loading questions must be completed within one second. |
+| NFR6  | Saving results must complete within one second. |
+| NFR7  | The application must run on Windows systems with Python and Tkinter installed. |
+| NFR8  | The application must not require internet access. |
+| NFR9  | Pure logic functions must be separated from GUI code. |
+| NFR10 | The system must allow unit tests to import functions without launching the GUI. |
+| NFR11 | The system must use standard Tkinter widgets compatible with assistive technologies. |
+| NFR12 | The system must avoid colour-only cues to ensure clarity for all users. |
+| NFR13 | The system must store only name and school; no sensitive data. |
+| NFR14 | All data must be stored locally and not transmitted externally. |
 
 
+### Tech Stack Online
+To Do
+
+### Code Design Document
+To do
 
