@@ -1,2 +1,16 @@
-def test_dummy():
-    pass
+import os
+import unittest
+
+class TestQuizSmoke(unittest.TestCase):
+
+    def setUp(self):
+        self.base_dir = os.path.dirname(__file__)
+        self.csv_path = os.path.join(self.base_dir, "questions.csv")
+
+
+    def test_load_questions(self):
+        questions = load_questions(self.csv_path)
+
+        self.assertIsInstance(questions, list)
+        self.assertGreater(len(questions), 0)
+        self.assertIn("question", questions[0])
