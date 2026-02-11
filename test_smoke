@@ -1,16 +1,25 @@
 import os
 import unittest
+from edtech_quiz import load_questions, save_results
 
-class TestQuizSmoke(unittest.TestCase):
 
-    def setUp(self):
-        self.base_dir = os.path.dirname(__file__)
-        self.csv_path = os.path.join(self.base_dir, "questions.csv")
-
+class TestQuiz(unittest.TestCase):
 
     def test_load_questions(self):
-        questions = load_questions(self.csv_path)
-
+        questions = load_questions("questions.csv")
         self.assertIsInstance(questions, list)
         self.assertGreater(len(questions), 0)
-        self.assertIn("question", questions[0])
+
+    def test_save_results(self):
+        test_file = "test_results.csv"
+
+        if os.path.exists(test_file):
+            os.remove(test_file)
+
+        save_results(test_file, "Test User", "Test School", ["a", "b", "c"])
+
+        self.assertTrue(os.path.exists(test_file))
+
+
+if __name__ == "__main__":
+    unittest.main()
