@@ -3,6 +3,8 @@ from edtech_quiz import load_questions, save_results
 
 def test_load_questions():
 
+  questions = load_questions("questions.csv")
+
   assert isinstance(questions, list)
   assert len(questions) > 0
   assert "question" in questions[0]
