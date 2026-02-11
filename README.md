@@ -21,19 +21,23 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 
 User Personas:
 
-Below is my User Persona Map. I have created six personas that can be broadly applied to individuals working across the education sector. The names have been selected carefully to avoid implying bias related to gender, age or ethnicity. Each persona includes an overarching tagline and a more detailed description. Developing this User Persona Map is valuable because it helps shape the design of my application and can support the DfE in planning future training and guidance for schools.
+**Figure 1:** Below is my User Persona Map. I have created six personas that can be broadly applied to individuals working across the education sector. The names have been selected carefully to avoid implying bias related to gender, age or ethnicity. Each persona includes an overarching tagline and a more detailed description. Developing this User Persona Map is valuable because it helps shape the design of my application and can support the DfE in planning future training and guidance for schools.
 
-<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/User_Personas.png" alt="User Personas" width="400">
+<img src="doc_assets/User_Personas.png" alt="Figure 1: A User Persona Map showing 6 fictional personas designed to replicate typical school capabilities" width="400">
 
 Personas Matrix:
 
-The next item is the User Persona Matrix. This takes the personality profiles from the map and plots how my application, alongside a wider training and guidance package, could support the development of each persona. The horizontal axis represents confidence, while the vertical axis represents actual capability. Each persona is shown using an emoji placed at the point that best reflects their current position, with an arrow indicating the direction in which they could develop in the short to medium term. The overall aim is to move more personas toward higher levels of confidence and capability. This approach also recognises the gap that can exist between perceived and actual ability. For example, the “Cautious User” is highly capable but unlikely to reach the highest levels of confidence due to their naturally cautious disposition. Similarly, the “Confident Collaborator” appears to lose confidence as capability increases; this reflects the idea that greater expertise often brings greater awareness of risk, tempering overconfidence.
+**Figure 2:** The next item is the User Persona Matrix. This takes the personality profiles from the map and plots how my application, alongside a wider training and guidance package, could support the development of each persona. The horizontal axis represents confidence, while the vertical axis represents actual capability. Each persona is shown using an emoji placed at the point that best reflects their current position, with an arrow indicating the direction in which they could develop in the short to medium term. The overall aim is to move more personas toward higher levels of confidence and capability. This approach also recognises the gap that can exist between perceived and actual ability. For example, the “Cautious User” is highly capable but unlikely to reach the highest levels of confidence due to their naturally cautious disposition. Similarly, the “Confident Collaborator” appears to lose confidence as capability increases; this reflects the idea that greater expertise often brings greater awareness of risk, tempering overconfidence.
 
-<img src="https://github.com/niletingham-web/digital-education-competency-quiz/blob/237b9464b24df1495259df6ae7c79f8a94849508/doc_assets/Persona_Matrix.png" alt="User Personas" width="1500">
+<img src="doc_assets/Persona_Matrix.png" alt="Figure 2: A Persona Matrix, plotting typical confidence vs capability, along with trends for improvement" width="1500">
 
 ### GUI Prototyping
 
-(Need to make and embed)
+**Figure 3:** A wireframe was produced during the initial planning phase to outline how users would move through the quiz. It maps the sequence of interactions, beginning with entering name and school, progressing through each question, and concluding with the submission confirmation. Included in the design are indicative error-handling prompts.
+
+Its purpose was to organise the arrangement of screens, identify where validation should occur, and establish the overall navigation logic before any coding took place. The wireframe focuses purely on flow and interaction rather than visual styling, acting as a structural guide rather than a final design
+
+<img src="doc_assets/EdTech_Quiz_Prototype.png" alt="Figure 3: A prototype wireframe demonstrating user journey for completion of the EdTech Quiz" width="1386">
 
 ### Accessibility Assessment
 
