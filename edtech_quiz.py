@@ -20,8 +20,13 @@ def save_name(filename, name):
 def submit_name():
 
     name = name_var.get().strip()
-  
+
+    if name == "":
+        messagebox.showwarning("Missing name", "Please enter your name.")
+        return
+
     save_name("names.csv", name)
+    messagebox.showinfo("Saved", "Your name has been saved.")
     root.destroy()
 
 root = tk.Tk()
