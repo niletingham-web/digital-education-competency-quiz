@@ -45,10 +45,6 @@ Its purpose was to organise the arrangement of screens, identify where validatio
 
 **Figure 3:** Wireframe
 
-### Accessibility Assessment
-
-(Need to do and incorporate things I've put into func and non-func requirements
-
 ### Functional and Non-Functional Requirements 
 
 Functional Requirements
@@ -72,6 +68,10 @@ Functional Requirements
 | FR15 | The application must show warnings for missing information or missing answers. |
 | FR16 | The application must show a confirmation message when results are saved. |
 | FR17 | The application must close the quiz window after completion. |
+| FR18 | The application must support keyboard-only navigation. |
+| FR19 | The application must show a clear, non-colour-focused outline for input areas. |
+| FR20 | The application must have clear screen-reader-friendly text. |
+| FR21 | The application must not impose time-based restrictions. |
 
 Non-Functional Requirements
 
@@ -91,7 +91,18 @@ Non-Functional Requirements
 | NFR12 | The system must avoid colour-only cues to ensure clarity for all users. |
 | NFR13 | The system must store only name and school; no sensitive data. |
 | NFR14 | All data must be stored locally and not transmitted externally. |
+| NFR15 | The application must use minimum contrast ratios compliant with WCAG AA standards. |
+| NFR16 | Minimum font sizes must meet accessibility guidelines for readability on standard displays. |
+| NFR17 | The system must be tested with at least one major screen reader. |
+| NFR18 | All warnings and errors must be written in age-appropriate plain English.  |
+| NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. |
+| NFR20 | The documentation must include a section describing available accessibility features. |
 
+### Accessibility Assessment
+
+The functional and non-functional requirements work together to create an experience that is accessible, predictable, and inclusive for a wide range of users. Many of the functional requirements directly reduce cognitive load and support assistive technologies. For example, collecting only essential information (FR1–FR3) keeps the onboarding process simple, while a single-question presentation (FR5) and enforced answer selection (FR7–FR8) help users focus on one task at a time. Keyboard-only navigation (FR18), clear input outlines (FR19), and screen reader-friendly text (FR20) ensure that participants who rely on assistive tools can interact with the quiz without barriers. The absence of time limits (FR21) is particularly important for users with processing, motor, or attention-related needs, allowing them to work at their own pace. Clear warnings and confirmations (FR15–FR16) also support users who benefit from explicit feedback or who may struggle with ambiguity.
+
+The non-functional requirements reinforce this foundation by ensuring the interface remains readable, consistent, and compatible with accessibility standards. Readable labels and minimum contrast ratios (NFR2, NFR15–NFR16) support users with low vision, while avoiding colour-only cues (NFR12) ensures that information is not lost for colour blind participants. Compatibility with standard Tkinter widgets (NFR11) and testing with a screen reader (NFR17) help guarantee that assistive technologies can interpret the interface reliably. Requirements such as simple design (NFR1), consistent spacing (NFR19), and plain-English warnings (NFR18) reduce cognitive load and make the quiz approachable for younger users or those with learning differences. Local data storage (NFR13–NFR14) also protects privacy by limiting the amount and sensitivity of information collected. Together, these requirements create a quiz environment that is accessible by design rather than as an afterthought.
 
 ### Tech Stack Online 
 
