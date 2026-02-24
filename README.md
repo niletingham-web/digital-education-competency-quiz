@@ -27,6 +27,7 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 
 **Figure 1:** User Persona Map
 
+
 ### Personas Matrix:
 
 **Figure 2:** The next item is the User Persona Matrix. This takes the personality profiles from the map and plots how my application, alongside a wider training and guidance package, could support the development of each persona. The horizontal axis represents confidence, while the vertical axis represents actual capability. Each persona is shown using an emoji placed at the point that best reflects their current position, with an arrow indicating the direction in which they could develop in the short to medium term. The overall aim is to move more personas toward higher levels of confidence and capability. This approach also recognises the gap that can exist between perceived and actual ability. For example, the “Cautious User” is highly capable but unlikely to reach the highest levels of confidence due to their naturally cautious disposition. Similarly, the “Confident Collaborator” appears to lose confidence as capability increases; this reflects the idea that greater expertise often brings greater awareness of risk, tempering overconfidence.
@@ -35,15 +36,19 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 
 **Figure 2:** User Persona Matrix
 
+
 ### GUI Prototyping
 
 **Figure 3:** A wireframe was produced during the initial planning phase to outline how users would move through the quiz. It maps the sequence of interactions, beginning with entering name and school, progressing through each question, and concluding with the submission confirmation. Included in the design are indicative error-handling prompts.
 
 Its purpose was to organise the arrangement of screens, identify where validation should occur, and establish the overall navigation logic before any coding took place. The wireframe focuses purely on flow and interaction rather than visual styling, acting as a structural guide rather than a final design
 
+[Link to live Figma prototype](https://www.figma.com/proto/mCGgaxD7YMgP6cBQVEi0pv/EdTech-Quiz-Prototype?t=HrJ1jBI9K3BsOJIG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-6&starting-point-node-id=1%3A6) — An interactive prototype quiz application, created in Figma
+
 <img src="doc_assets/EdTech_Quiz_Prototype.png" alt="Figure 3: A prototype wireframe demonstrating user journey for completion of the EdTech Quiz" width="1386">
 
 **Figure 3:** Wireframe
+
 
 ### Functional and Non-Functional Requirements 
 
@@ -113,9 +118,31 @@ The non-functional requirements reinforce this foundation by ensuring the interf
 
 ### Code Design Document
 
-NEED TO WRITE DESCRIPTION FOR CODE DIAGRAM
+The conceptual UML Class Diagram below demonstrates the overall structure of the quiz application. At its centre is the edtech_quiz class, which manages the quiz flow, user interface state, and user inputs. It holds the questions, the Tkinter window, and the variables that track the user’s name, school, and answer choices. Its methods represent the lifecycle of the quiz, from starting it to showing each question, moving forward, and finally completing the session.
+
+Supporting this main class are two focused helper classes: QuestionLoader, responsible for retrieving or preparing the questions, and ResultSaver, which handles storing or exporting the final results. The diagram shows that the quiz class depends on these helpers but does not inherit from them, emphasising a clean separation of responsibilities. The diagram demonstrates a well‑structured, maintainable design where each class has a clear purpose, and the main controller orchestrates the quiz experience.
 
 <img src="doc_assets/class_diagram.png" alt="Figure 4: A Conceptual UML Class Diagram" width="196">
 
 **Figure 4:** Conceptual UML Class Diagram
 
+## Development Section
+
+In this section, include relevant code blocks using triple backticks (```) to format your code clearly. Explain how your application works by describing the main parts of your code, such as important functions, classes, or modules. Provide enough detail to demonstrate your understanding of how each part contributes to the overall functionality. There is no word limit; focus on clarity and completeness.
+
+## Testing Section
+
+Explain your approach to testing your digital product, demonstrating a systematic and strategic approach. Address the following topics:
+1.	Testing strategy and methodology (summarise and justify different methods of testing you have used, for example, manual and automated unit testing)
+2.	Outcomes of application testing:
+2.1.	The outcome of manual tests (should be presented in a tabular format).
+2.2.	Unit testing outcome (should include screenshots of tests running - passing or failing).
+
+
+## Documentation Section
+
+User documentation should explain how end users, such as staff within your organisation, can interact with the quiz application, whereas technical documentation should outline steps such as running tests locally and explain parts of the code.
+
+## Evaluation Section
+
+The evaluation section should explain what went well during the development of the project and what could have been improved. The evaluation section should be written in a genuine, reflective tone. As the README follows the conventions of software documentation, hyperlinks should be used for references instead of Harvard referencing.
