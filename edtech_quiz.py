@@ -38,13 +38,11 @@ def show_question(question_number, answers_so_far):
 
     tk.Label(root,text=f"Question {question_number + 1}: {question['question']}",wraplength=1000,justify="left").pack(anchor="w")
 
-
     choice_var.set("")
 
     for option in ["a", "b", "c", "d"]:
         text = f"{option.upper()}: {question[option]}"
         tk.Radiobutton(root,text=text,variable=choice_var,value=option,wraplength=950,justify="left").pack(anchor="w")
-
 
     tk.Button(
         root,
@@ -76,7 +74,7 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     root.title("EdTech Quiz")
-    root.geometry("1000x325") 
+    root.geometry("1000x350") 
     root.configure(bg="#FFFFFF") 
 
     root.option_add("*Background", "#FFFFFF")
@@ -87,7 +85,7 @@ if __name__ == "__main__":
     school_var = tk.StringVar()
     choice_var = tk.StringVar()
 
-    tk.Label(root,text="Welcome to the EdTech Quiz!\n\nPlease enter your details below to begin.",wraplength=900,justify="center").pack(pady=20)
+    tk.Label(root,text="Welcome to the EdTech Quiz!\n\nPlease enter your name and school below, then click the Start Quiz button.\nYou will then be asked six questions, select one answer per question and confirm by clicking Next. ",wraplength=950,justify="center").pack(pady=20)
 
     tk.Label(root, text="Enter your name:").pack()
     tk.Entry(root, textvariable=name_var).pack()
