@@ -1,4 +1,4 @@
-# Digital Education Competency Quiz
+# 👨🏻‍🎓 Digital Education Competency Quiz 👨🏻‍🎓
 
 The Digital Education Competency (DEC) Quiz App is a minimum viable product developed for the Department for Education (DfE) to support assessment of digital capability across schools in England. The DfE has introduced six core digital standards that will become mandatory from 2030, and the app provides a simple way to gather insight that can inform targeted training and future guidance for the sector.
 
@@ -10,13 +10,13 @@ Because the purpose of the app is to gather insight rather than assess performan
 
 Future iterations could introduce data analysis, visualisation, customisable questions, differentiated access levels and enhanced accessibility features. The MVP keeps scope intentionally limited to core functionality, enabling rapid deployment, early user feedback, stakeholder confidence and a clear direction for future development.
 
-## Design
+## 🎨 Design 🎨
 
-### User Experience Mapping
+### 🔍 User Experience Mapping 🔍
 
 I’ve developed a user persona map and a persona matrix to capture the range of personalities and behaviours that exist across the education community. Instead of relying on a single stereotypical profile for each role, this approach is intentionally more inclusive and better reflects real‑world diversity. People in the same position can have very different levels of digital confidence and experience, so a behaviour‑based model provides a more accurate foundation for design decisions. For example, not all governors are retired with low technology confidence; some may work in ICT or digital roles in their day‑to‑day careers. By focusing on behaviours, motivations and capability rather than assumptions about age or background, the personas offer a more representative and equitable view of the users the system needs to support.
 
-### User Personas:
+### 👥 User Personas 👥
 
 **Figure 1:** Below is my User Persona Map. I have created six personas that can be broadly applied to individuals working across the education sector. The names have been selected carefully to avoid implying bias related to gender, age or ethnicity. Each persona includes an overarching tagline and a more detailed description. Developing this User Persona Map is valuable because it helps shape the design of my application and can support the DfE in planning future training and guidance for schools.
 
@@ -25,7 +25,7 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 **Figure 1:** User Persona Map
 
 
-### Personas Matrix:
+### 👨‍👩‍👦‍👦 Personas Matrix 👨‍👩‍👦‍👦
 
 **Figure 2:** The next item is the User Persona Matrix. This takes the personality profiles from the map and plots how my application, alongside a wider training and guidance package, could support the development of each persona. The horizontal axis represents confidence, while the vertical axis represents actual capability. Each persona is shown using an emoji placed at the point that best reflects their current position, with an arrow indicating the direction in which they could develop in the short to medium term. The overall aim is to move more personas toward higher levels of confidence and capability. This approach also recognises the gap that can exist between perceived and actual ability. For example, the “Cautious User” is highly capable but unlikely to reach the highest levels of confidence due to their naturally cautious disposition. Similarly, the “Confident Collaborator” appears to lose confidence as capability increases; this reflects the idea that greater expertise often brings greater awareness of risk, tempering overconfidence.
 
@@ -34,7 +34,7 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 **Figure 2:** User Persona Matrix
 
 
-### GUI Prototyping
+### 📲 GUI Prototyping 📲
 
 **Figure 3:** A wireframe was produced during the initial planning phase to outline how users would move through the quiz. It maps the sequence of interactions, beginning with entering name and school, progressing through each question, and concluding with the submission confirmation. Included in the design are indicative error-handling prompts.
 
@@ -47,7 +47,7 @@ Its purpose was to organise the arrangement of screens, identify where validatio
 **Figure 3:** Wireframe
 
 
-### Functional and Non-Functional Requirements 
+### 📝 Functional and Non-Functional Requirements 📝
 
 Functional Requirements
 
@@ -100,20 +100,20 @@ Non-Functional Requirements
 | NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. |
 | NFR20 | The documentation must include a section describing available accessibility features. |
 
-### Accessibility Assessment
+### 🦻 Accessibility Assessment 🦻
 
 The functional and non-functional requirements work together to create an experience that is accessible, predictable, and inclusive for a wide range of users. Many of the functional requirements directly reduce cognitive load and support assistive technologies. For example, collecting only essential information (FR1–FR3) keeps the onboarding process simple, while a single-question presentation (FR5) and enforced answer selection (FR7–FR8) help users focus on one task at a time. Keyboard-only navigation (FR18), clear input outlines (FR19), and screen reader-friendly text (FR20) ensure that participants who rely on assistive tools can interact with the quiz without barriers. The absence of time limits (FR21) is particularly important for users with processing, motor, or attention-related needs, allowing them to work at their own pace. Clear warnings and confirmations (FR15–FR16) also support users who benefit from explicit feedback or who may struggle with ambiguity.
 
 The non-functional requirements reinforce this foundation by ensuring the interface remains readable, consistent, and compatible with accessibility standards. Readable labels and minimum contrast ratios (NFR2, NFR15–NFR16) support users with low vision, while avoiding colour-only cues (NFR12) ensures that information is not lost for colour blind participants. Compatibility with standard Tkinter widgets (NFR11) and testing with a screen reader (NFR17) help guarantee that assistive technologies can interpret the interface reliably. Requirements such as simple design (NFR1), consistent spacing (NFR19), and plain-English warnings (NFR18) reduce cognitive load and make the quiz approachable for younger users or those with learning differences. Local data storage (NFR13–NFR14) also protects privacy by limiting the amount and sensitivity of information collected. Together, these requirements create a quiz environment that is accessible by design rather than as an afterthought.
 
-### Tech Stack Online 
+### 🌐 Tech Stack Online 🌐
 
 - [Python 3](https://docs.python.org/3/) — Core programming language. Used for all application logic, file handling, and user interaction.
 - [Tkinter](https://docs.python.org/3/library/tkinter.html) — Desktop graphical user interface. Provides the graphical interface for entering user details and navigating quiz questions.
 - [csv](https://docs.python.org/3/library/csv.html) — Local data storage in CSV format. Stores quiz questions, answers and user data.
 - [unittest](https://docs.python.org/3/library/unittest.html) — Automated unit testing. Used for smoke tests and functional checks of pure functions.
 
-### Code Design Document
+### 📝 Code Design Document 📝
 
 The conceptual UML Class Diagram below demonstrates the overall structure of the quiz application. At its centre is the edtech_quiz class, which manages the quiz flow, user interface state, and user inputs. It holds the questions, the Tkinter window, and the variables that track the user’s name, school, and answer choices. Its methods represent the lifecycle of the quiz, from starting it to showing each question, moving forward, and finally completing the session.
 
@@ -123,7 +123,7 @@ Supporting this main class are two focused helper classes: QuestionLoader, respo
 
 **Figure 4:** Conceptual UML Class Diagram
 
-## Development Section
+## 🛠️ Development Section 🛠️
 
 This section examines the code behind my quiz application, explaining the purpose and behaviour of each part of the program to show how the different components work together to create the full functionality.
 
@@ -337,11 +337,11 @@ root.mainloop()
 - Keeps the window open and responsive
 
 
-## Testing Section
+## 🔬 Testing Section 🔬
 
 To ensure that my applicaton was reliable, accessible, and functionally complete, I adopted a systematic and strategic approach to testing. My testing process combined manual testing against the functional and non‑functional requirements with automated unit testing executed through a continuous integration (CI) pipeline on GitHub. Using both methods allowed me to validate the behaviour of the application from two complementary perspectives: manual testing confirmed that the user experience and interface behaved as intended, while automated unit tests verified the correctness of the underlying logic in a repeatable and objective way.
 
-### Manual Testing
+### 🔧 Manual Testing 🔧
 
 Manual testing was used to verify that the application met all functional and non‑functional requirements. This involved interacting with the quiz application as an end user would: entering data, navigating through questions, selecting answers, and confirming that the system responded correctly at each stage. Manual testing was particularly important for validating:
 
@@ -354,7 +354,7 @@ Manual testing was used to verify that the application met all functional and no
 
 This method allowed me to observe the real‑world usability of the application and ensure that it behaved consistently across different scenarios
 
-### Automated Unit Testing
+### 🤖 Automated Unit Testing 🤖
 
 To complement manual testing, I implemented automated unit tests using Python’s unittest framework. These tests were run automatically through a GitHub continuous integration pipeline, ensuring that every commit triggered a fresh test run. This approach provided several advantages:
 
@@ -396,7 +396,7 @@ if __name__ == "__main__":
 
 This script checks that the question‑loading function returns a valid list and that the results‑saving function correctly creates a CSV file when required
 
-### Manual Testing Outcomes
+### 📜 Manual Testing Outcomes 📜
 
 The table below summarises the results of my manual testing against each functional requirement.
 
@@ -449,7 +449,7 @@ Non-Functional Requirements
 | NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. | Pass | Consistent placement used. |
 | NFR20 | The documentation must include a section describing available accessibility features. | Pass | Accessibility features in user documentation. |
 
-### Automated Unit Testing Outcomes
+### ⚙️ Automated Unit Testing Outcomes ⚙️
 
 The automated tests were executed through GitHub’s CI pipeline. The results confirmed that both core functions behaved as expected:
 
@@ -471,7 +471,7 @@ The automated tests were executed through GitHub’s CI pipeline. The results co
 These visual results demonstrate that the logic of the application is stable and that future changes can be validated automatically.
 
 
-### Accessibility Specific Testing
+### 😎 Accessibility Specific Testing 😎
 
 To check the suitablity of the colour scheme, font size and font, I utilised web based tool which aligns to the WCAG AA/AAA standards.
 
@@ -485,11 +485,11 @@ To check the suitablity of the colour scheme, font size and font, I utilised web
 
 A screen reader is currently unable to read the quiz applicaiton. This is due to the way tkinter presents the gui. It is possible to modify the code to make it accessible via a screen reader, this is likely to need additional modules and should be added to the future developments pipeline.
 
-## Documentation Section
+## 📖 Documentation Section 📖
 
-### User Documentation
+### 🤝 User Documentation 🤝
 
-### Getting Ready To Run The Quiz
+### 🧩 Getting Ready To Run The Quiz 🧩
 
 This guide explains how to install Python, download the quiz from GitHub, and run the application on your computer. No prior programming experience is required. This guide and the application are based on a Windows operating system.
 
@@ -583,7 +583,7 @@ py -m tkinter
 For any other errors, attempt to download a fresh copy of the code from the repository, making no modifications and reinstall Python.
 
 
-### Navigating The Quiz
+### 🧭 Navigating The Quiz 🧭
 
 1. Enter your details
 
@@ -633,7 +633,7 @@ The quiz only stores:
 
 No sensitive or personal information is collected, and all data stays on your device.
 
-### Accessibility Documentation
+### 👁️ Accessibility Documentation 👁️
 
 The EdTech Quiz includes several built‑in accessibility features to support a wide range of users:
 
@@ -647,7 +647,7 @@ These features help ensure the quiz is usable, accessible, and comfortable for a
 
 At present, the application does not work universally with Screen‑readers. All buttons, labels, and inputs use standard Tkinter widgets so in future releases, it should be possible to introduce screen reader navigation.
 
-### Technical Documentation
+### 👨🏻‍🔧 Technical Documentation 👨🏻‍🔧
 
 This section outlines how to run the project’s automated tests locally and provides a technical explanation of the main components of the quiz application. It is intended for developers or maintainers who need to understand the internal structure of the codebase.
 
@@ -708,11 +708,11 @@ if __name__ == "__main__":
 
 These tests are also executed automatically through a GitHub continuous integration pipeline, ensuring consistent validation on every commit.
 
-### Technical Overview of the Code:
+### 👷‍♂️ Technical Overview of the Code 👷‍♂️
 
 The quiz application is built using two core Python modules — Tkinter and csv — supported by a small set of focused functions that separate data handling from the graphical interface. This structure keeps the program maintainable, testable, and easy to extend.
 
-### Tkinter (GUI Framework):
+### 💻 Tkinter (GUI Framework) 💻
 
 Tkinter provides all the graphical components of the quiz. It is used to:
 - Create the main application window (tk.Tk())
@@ -734,7 +734,7 @@ The csv module is used for:
 
 Using CSV files keeps the quiz content editable without modifying the code.
 
-### Key Functional Components:
+### 📊 Key Functional Components 📊
 
 Loading Questions:
 
@@ -756,7 +756,7 @@ Finishing the Quiz:
 
 finish_quiz() saves all collected answers, shows a confirmation message, and closes the application cleanly.
 
-### How the Application Runs:
+### 🧪 How the Application Runs 🧪
 
 When the script is executed:
 
@@ -779,7 +779,7 @@ When the script is executed:
 This event‑driven flow is controlled entirely by Tkinter’s main loop, which listens for user actions and triggers the appropriate functions.
 
 
-## Evaluation Section
+## 📈 Evaluation Section 📈
 
 Overall, this project has been a valuable learning experience, especially as someone still developing confidence with Python. Getting started was the hardest part; I didn’t want to design something beyond my abilities, but I also wanted the MVP to feel meaningful. Creating a small dummy application early on helped me understand what I could realistically build and gave me a clearer foundation before committing to the full design.
 
