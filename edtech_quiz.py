@@ -1,6 +1,6 @@
-import csv
-import tkinter as tk
-from tkinter import messagebox
+import csv # for permanent storage functionality
+import tkinter as tk # for GUI
+from tkinter import messagebox # for pop-up information boxes
 
 def load_questions(filename):
     with open(filename, newline='', encoding='utf-8') as f:
