@@ -1,7 +1,7 @@
 import os
 import unittest
-from edtech_quiz import load_questions, save_results
-
+from edtech_quiz import load_questions
+from edtech_quiz import save_results
 
 class TestQuiz(unittest.TestCase):
 
