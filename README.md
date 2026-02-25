@@ -1,7 +1,4 @@
 # Digital Education Competency Quiz
-A fun and practical quiz that focuses on practical, everyday digital platforms and behaviours for education staff.
-
-## Introduction
 
 The Digital Education Competency (DEC) Quiz App is a minimum viable product developed for the Department for Education (DfE) to support assessment of digital capability across schools in England. The DfE has introduced six core digital standards that will become mandatory from 2030, and the app provides a simple way to gather insight that can inform targeted training and future guidance for the sector.
 
@@ -154,7 +151,7 @@ def load_questions(filename):
 
 - Opens a CSV file containing quiz questions
 - Uses csv.DictReader to convert each row into a dictionary
-- utf-8 tells Python what character format to use when reading the file
+- UTF-8 tells Python what character format to use when reading the file
 - Returns a list of question dictionaries
 
 This allows you to store questions externally and update them without changing the Python code.
@@ -342,12 +339,6 @@ root.mainloop()
 
 ## Testing Section
 
-Explain your approach to testing your digital product, demonstrating a systematic and strategic approach. Address the following topics:
-1.	Testing strategy and methodology (summarise and justify different methods of testing you have used, for example, manual and automated unit testing)
-2.	Outcomes of application testing:
-2.1.	The outcome of manual tests (should be presented in a tabular format).
-2.2.	Unit testing outcome (should include screenshots of tests running - passing or failing).
-
 To ensure that my applicaton was reliable, accessible, and functionally complete, I adopted a systematic and strategic approach to testing. My testing process combined manual testing against the functional and non‑functional requirements with automated unit testing executed through a continuous integration (CI) pipeline on GitHub. Using both methods allowed me to validate the behaviour of the application from two complementary perspectives: manual testing confirmed that the user experience and interface behaved as intended, while automated unit tests verified the correctness of the underlying logic in a repeatable and objective way.
 
 ### Manual Testing
@@ -480,11 +471,11 @@ The automated tests were executed through GitHub’s CI pipeline. The results co
 These visual results demonstrate that the logic of the application is stable and that future changes can be validated automatically.
 
 
-### Accessibility specific testing
+### Accessibility Specific Testing
 
 To check the suitablity of the colour scheme, font size and font, I utilised web based tool which aligns to the WCAG AA/AAA standards.
 
-[Colour Contrast Testing Site](https://colourcontrast.cc/?background=ffffff&foreground=b60000) — This page demonstrates that the chosen colour scheme passes AA/AAA Large and AA/AAA Normal accessibiltiy tests for colour, based on the use of font size 16 with a sans font.
+[Colour Contrast Testing Site](https://colourcontrast.cc/?background=ffffff&foreground=b60000) — This link demonstrates that the chosen colour scheme passes AA/AAA Large and AA/AAA Normal accessibiltiy tests for colour, based on the use of font size 16 with a sans font.
 
 
 <img src="doc_assets/contrast_checks.png" alt="Figure 7: Screenshot of passing contrast checks" width="1067">
@@ -496,13 +487,296 @@ A screen reader is currently unable to read the quiz applicaiton. This is due to
 
 ## Documentation Section
 
-User documentation should explain how end users, such as staff within your organisation, can interact with the quiz application, whereas technical documentation should outline steps such as running tests locally and explain parts of the code.
-
 ### User Documentation
+
+### Getting Ready To Run The Quiz
+
+This guide explains how to install Python, download the quiz from GitHub, and run the application on your computer. No prior programming experience is required. This guide and the application are based on a Windows operating system.
+
+1. Install Python
+
+The quiz is written in Python, so you need Python installed before you can run it.
+
+Step‑by‑step instructions
+
+- Go to the official Python website: https://www.python.org/downloads/
+- Click Download Python 3.x.x (the latest stable version) and run when complete
+- When the installer opens: Tick the box that says “Add Python to PATH”
+(This is important — it allows you to run Python from the command line.)
+- Click Install Now.
+- Wait for the installation to complete, then close the installer.
+
+Check that Python installed correctly
+From the start menu, open Command Prompt (Windows) and type:
+py --version
+
+You should see something like:
+Python 3.13.7
+
+If you see a version number, Python is installed correctly. If not, try to download again and reinstall.
+
+2. Download the Quiz from GitHub
+
+You can install the quiz by downloading the GitHub repository.
+
+Option A — Download as a ZIP file
+- Visit the quiz GitHub repository page - https://github.com/niletingham-web/digital-education-competency-quiz
+- Click the green Code button.
+- Select Download ZIP.
+- Once downloaded, right‑click the ZIP file and choose Extract All.
+- Open the extracted folder — this contains the quiz files.
+- Copy the folder to a suitable storage area and make note of the location
+
+Option B — Clone using Git (for advanced users)
+
+If you have Git installed, you can clone the repository using the command below:
+
+```
+git clone https://github.com/niletingham-web/digital-education-competency-quiz
+```
+
+3. Ensure the Required Files Are Present
+
+Inside the project folder, you should see:
+- edtech_quiz.py - The main quiz file
+- questions.csv - The quiz questions
+- Any additional files such as README or test scripts
+
+Do not modify the folder structure or move files between folders.
+
+4. Run the Quiz
+
+Once Python is installed and the files are downloaded, you can run the quiz.
+
+Step‑by‑step
+- Navigate to the start menu and open Command Prompt.
+- Navigate to the folder where the quiz is stored by entering the command below:
+
+```
+cd C:\Users\YourName\Downloads\EdTechQuiz
+```
+Note - You will need to update the folder path with the location you noted in step 2.
+
+- Once you are in the correct directory, run the quiz using the command below:
+
+```
+py edtech_quiz.py
+```
+
+The quiz window should now open.
+
+5. Troubleshooting
+
+“py is not recognised”
+
+This means Python wasn’t added to PATH.
+
+Reinstall Python and ensure Add Python to PATH is ticked.
+
+The quiz window doesn’t open
+
+Check that Tkinter is installed. It comes with Python by default, but you can verify by running:
+```
+py -m tkinter
+```
+
+For any other errors, attempt to download a fresh copy of the code from the repository, making no modifications and reinstall Python.
+
+
+### Navigating The Quiz
+
+1. Enter your details
+
+On the welcome screen:
+- Type your name into the first text box.
+- Type your school name into the second text box.
+- Click Start Quiz to begin.
+
+If either field is left blank, the quiz will show a message asking you to complete both fields before continuing.
+
+2. Read each question carefully
+
+The quiz displays one question at a time. Each question includes:
+- A question number
+- The question text
+- Four answer options labelled A, B, C, and D
+
+All text automatically wraps to fit the window, so longer questions remain easy to read.
+
+3. Select your answer
+
+For each question:
+- Click the radio button next to the answer you want to choose.
+- Only one answer can be selected at a time.
+
+If you try to continue without choosing an answer, the quiz will remind you to select one before moving on.
+
+4. Move to the next question
+
+Click the Next button to continue.
+
+Your answer is saved automatically, and the next question will appear immediately.
+
+5. Complete the quiz
+
+After the final question:
+- Your name, school, and all your answers are saved to a results file.
+- A confirmation message appears to let you know your responses have been recorded.
+- The quiz window closes automatically.
+
+6. What happens to your data
+
+The quiz only stores:
+- Your name
+- Your school
+- Your selected answers
+
+No sensitive or personal information is collected, and all data stays on your device.
 
 ### Accessibility Documentation
 
+The EdTech Quiz includes several built‑in accessibility features to support a wide range of users:
+
+- Clear, readable text: Large fonts, high‑contrast colours, and automatic text wrapping make questions easy to read.
+- Keyboard‑friendly navigation: You can complete the entire quiz using only the keyboard (Tab, arrow keys, Enter/Space).
+- No time limits: You can take as long as you need on each question.
+- Consistent layout: Each screen follows the same simple structure to reduce cognitive load.
+- Plain English messages: All instructions and warnings are written clearly for users with reading difficulties.
+
+These features help ensure the quiz is usable, accessible, and comfortable for as many participants as possible.
+
+At present, the application does not work universally with Screen‑readers. All buttons, labels, and inputs use standard Tkinter widgets so in future releases, it should be possible to introduce screen reader navigation.
+
 ### Technical Documentation
+
+This section outlines how to run the project’s automated tests locally and provides a technical explanation of the main components of the quiz application. It is intended for developers or maintainers who need to understand the internal structure of the codebase.
+
+Running Tests Locally:
+
+The project includes automated unit tests written using Python’s built‑in unittest framework. These tests validate the core logic of the application, ensuring that question loading and result saving behave correctly.
+
+Prerequisites
+- Python 3 installed
+- The project folder downloaded or cloned
+- The questions.csv file present in the same directory as the quiz script
+
+Steps to run tests
+- Open Command Prompt via Start menu
+- Navigate to the project directory:
+
+```
+cd C:\Users\YourName\Downloads\EdTechQuiz
+```
+
+- Run the test suite:
+
+```
+py -m unittest
+```
+
+- You should see output indicating whether each test passed or failed.
+
+Test Script (for reference):
+
+```
+import os
+import unittest
+from edtech_quiz import load_questions
+from edtech_quiz import save_results
+
+class TestQuiz(unittest.TestCase):
+
+    def test_load_questions(self):
+        questions = load_questions("questions.csv")
+        self.assertIsInstance(questions, list)
+        self.assertGreater(len(questions), 0)
+
+    def test_save_results(self):
+        test_file = "test_results.csv"
+
+        if os.path.exists(test_file):
+            os.remove(test_file)
+
+        save_results(test_file, "Test User", "Test School", ["a", "b", "c"])
+
+        self.assertTrue(os.path.exists(test_file))
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+
+These tests are also executed automatically through a GitHub continuous integration pipeline, ensuring consistent validation on every commit.
+
+### Technical Overview of the Code:
+
+The quiz application is built using two core Python modules — Tkinter and csv — supported by a small set of focused functions that separate data handling from the graphical interface. This structure keeps the program maintainable, testable, and easy to extend.
+
+### Tkinter (GUI Framework):
+
+Tkinter provides all the graphical components of the quiz. It is used to:
+- Create the main application window (tk.Tk())
+- Display labels, buttons, and text fields
+- Render radio buttons for answer selection
+- Manage user input through StringVar() variables
+- Control layout using .pack()
+- Run the event loop (root.mainloop())
+
+Tkinter handles all user interaction, while the logic functions operate independently of the interface.
+
+CSV (Data Handling):
+
+The csv module is used for:
+
+- Reading quiz questions from questions.csv using csv.DictReader
+- Writing user results to a CSV file using csv.writer
+- Ensuring data is stored in a structured, portable format
+
+Using CSV files keeps the quiz content editable without modifying the code.
+
+### Key Functional Components:
+
+Loading Questions:
+
+The load_questions() function reads the CSV file and converts each row into a dictionary. This allows questions and answer options to be accessed by key, making the quiz logic simple and predictable.
+
+Saving Results:
+
+save_results() handles all output data. It creates the results file if needed, writes a header once, and appends each new quiz attempt. This ensures data persistence without overwriting previous entries.
+
+Displaying Questions:
+
+show_question() is responsible for rendering each question on screen. It clears the window, displays the question text, and generates four radio buttons. This function is called repeatedly to move through the quiz.
+
+Navigation and Validation:
+
+next_question() checks that the user has selected an answer before progressing. It collects answers in order and determines whether to load the next question or finish the quiz.
+
+Finishing the Quiz:
+
+finish_quiz() saves all collected answers, shows a confirmation message, and closes the application cleanly.
+
+### How the Application Runs:
+
+When the script is executed:
+
+- Questions are loaded from the CSV file.
+- The Tkinter window is created, styled, and populated with:
+- A welcome message
+- Name and school input fields
+- A Start button
+- When the user clicks Start Quiz, the program:
+- Validates the inputs
+- Displays the first question
+- Each click of Next:
+- Validates the answer
+- Loads the next question or ends the quiz
+- When the quiz ends:
+- Results are written to a CSV file
+- A confirmation message appears
+- The window closes
+
+This event‑driven flow is controlled entirely by Tkinter’s main loop, which listens for user actions and triggers the appropriate functions.
 
 
 ## Evaluation Section
