@@ -132,13 +132,15 @@ In this section, include relevant code blocks using triple backticks (```) to fo
 
 1. Importing Modules
 
-```import csv
+```
+import csv
 import tkinter as tk
-from tkinter import messagebox```
+from tkinter import messagebox
+```
 
-- csv — used to read the questions and write the results
-- tkinter — provides the GUI framework
-- messagebox — used for pop‑up warnings and confirmation messages
+- csv module is used to read the questions and write the results
+- tkinter module provides the GUI framework
+- messagebox module is used for pop‑up warnings and confirmation messages
 These modules form the foundation of the application.
 
 
