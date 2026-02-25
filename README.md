@@ -128,7 +128,7 @@ Supporting this main class are two focused helper classes: QuestionLoader, respo
 
 ## Development Section
 
-In this section, include relevant code blocks using triple backticks (```) to format your code clearly. Explain how your application works by describing the main parts of your code, such as important functions, classes, or modules. Provide enough detail to demonstrate your understanding of how each part contributes to the overall functionality. There is no word limit; focus on clarity and completeness.
+This section examines the code behind my quiz application, explaining the purpose and behaviour of each part of the program to show how the different components work together to create the full functionality.
 
 1. Importing Modules
 
@@ -348,10 +348,162 @@ Explain your approach to testing your digital product, demonstrating a systemati
 2.1.	The outcome of manual tests (should be presented in a tabular format).
 2.2.	Unit testing outcome (should include screenshots of tests running - passing or failing).
 
+To ensure that my applicaton was reliable, accessible, and functionally complete, I adopted a systematic and strategic approach to testing. My testing process combined manual testing against the functional and non‑functional requirements with automated unit testing executed through a continuous integration (CI) pipeline on GitHub. Using both methods allowed me to validate the behaviour of the application from two complementary perspectives: manual testing confirmed that the user experience and interface behaved as intended, while automated unit tests verified the correctness of the underlying logic in a repeatable and objective way.
+
+### Manual Testing
+
+Manual testing was used to verify that the application met all functional and non‑functional requirements. This involved interacting with the quiz application as an end user would: entering data, navigating through questions, selecting answers, and confirming that the system responded correctly at each stage. Manual testing was particularly important for validating:
+
+- User interface behaviour
+- Accessibility features
+- Error messages and warnings
+- Input validation
+- Navigation flow
+- File creation and data storage
+
+This method allowed me to observe the real‑world usability of the application and ensure that it behaved consistently across different scenarios
+
+### Automated Unit Testing
+
+To complement manual testing, I implemented automated unit tests using Python’s unittest framework. These tests were run automatically through a GitHub continuous integration pipeline, ensuring that every commit triggered a fresh test run. This approach provided several advantages:
+
+- Early detection of regressions
+- Confidence that core functions behave consistently
+- Repeatable, objective verification
+- Separation of logic from GUI code (supporting NFR9 and NFR10)
+
+The automated tests focused on two critical functions: loading questions from a CSV file and saving results to a new or existing CSV file
+
+Below is the unit testing script used in the CI pipeline:
+
+```
+import os
+import unittest
+from edtech_quiz import load_questions
+from edtech_quiz import save_results
+
+class TestQuiz(unittest.TestCase):
+
+    def test_load_questions(self):
+        questions = load_questions("questions.csv")
+        self.assertIsInstance(questions, list)
+        self.assertGreater(len(questions), 0)
+
+    def test_save_results(self):
+        test_file = "test_results.csv"
+
+        if os.path.exists(test_file):
+            os.remove(test_file)
+
+        save_results(test_file, "Test User", "Test School", ["a", "b", "c"])
+
+        self.assertTrue(os.path.exists(test_file))
+
+if __name__ == "__main__":
+    unittest.main()
+```    
+
+This script checks that the question‑loading function returns a valid list and that the results‑saving function correctly creates a CSV file when required
+
+### Manual Testing Outcomes
+
+The table below summarises the results of my manual testing against each functional requirement.
+
+| ID   | Requirement | Result | Notes |
+|------|-------------|--------|-------|
+| FR1  | The application must allow a participant to enter their name. | Pass | Field for entering name. |
+| FR2  | The application must allow a participant to enter their school name. | Pass | Field for entering school. |
+| FR3  | The application must validate that both fields are completed before starting the quiz. | Pass | Message appears if incomplete. |
+| FR4  | The application must load quiz questions from a CSV file. | Pass | Questions loaded from questions.csv file. |
+| FR5  | The application must display one question at a time. | Pass | One question is displayed at a time. |
+| FR6  | The application must show four answer options (A, B, C, D). | Pass | 4 multiple-choice answers available. |
+| FR7  | The application must allow the participant to select exactly one answer per question. | Pass | Only one radio box can be selected. |
+| FR8  | The application must prevent the participant from progressing without selecting an answer. | Pass | Message displays if incomplete. |
+| FR9  | The application must move to the next question after an answer is submitted. | Pass | Next button progresses to next question. |
+| FR10 | The application must record all selected answers in order. | Pass | Answers stored in the order answered. |
+| FR11 | The application must detect when the final question has been answered. | Pass | Message states when complete. |
+| FR12 | The application must save the participant’s name, school, and answers to a CSV file. | Pass | Results saved to resutls.csv file. |
+| FR13 | The application must create the results file with a header if it does not already exist. | Pass | File is created with a header. |
+| FR14 | The application must append new results without overwriting previous entries. | Pass | New submissions are appended. |
+| FR15 | The application must show warnings for missing information or missing answers. | Pass | Warning messages functional. |
+| FR16 | The application must show a confirmation message when results are saved. | Pass | Message pops up to confirm. |
+| FR17 | The application must close the quiz window after completion. | Pass | Closed after selecting Ok on completion message. |
+| FR18 | The application must support keyboard-only navigation. | Pass | Can successfully navigate through. |
+| FR19 | The application must show a clear, non-colour-focused outline for input areas. | Pass | Navigation does not rely on colour. |
+| FR20 | The application must have clear screen-reader-friendly text. | Partial | Text clear but screen reader not functional. |
+| FR21 | The application must not impose time-based restrictions. | Pass | No time limits imposed, app does not time out. |
+
+Non-Functional Requirements
+
+| ID   | Requirement | Result | Notes |
+|------|-------------|--------|-------|
+| NFR1  | The interface must be simple and easy for non-technical users to understand. | Pass | Interface uses clear instructions. |
+| NFR2  | All labels, buttons, and text fields must be clearly visible and readable. | Pass | Clean GUI with no unreadable content. |
+| NFR3  | The system must handle missing or malformed CSV files gracefully. | Pass | Created if missing and utf-8 ensures consistency. |
+| NFR4  | The system must not crash if the results file already exists. | Pass | App successfully appends. |
+| NFR5  | Loading questions must be completed within one second. | Pass | Loads in under a second. |
+| NFR6  | Saving results must complete within one second. | Pass | Saves in under a second. |
+| NFR7  | The application must run on Windows systems with Python and Tkinter installed. | Pass | Runs on Python 3 with Tkinter module. |
+| NFR8  | The application must not require internet access. | Pass | App runs on local storage. |
+| NFR9  | Pure logic functions must be separated from GUI code. | Pass | Logic functions feature before GUI in code. |
+| NFR10 | The system must allow unit tests to import functions without launching the GUI. | Pass | test_smoke.py runs seperately. |
+| NFR11 | The system must use standard Tkinter widgets compatible with assistive technologies. | Partial | Standard TKinter used, issues with screen reader. |
+| NFR12 | The system must avoid colour-only cues to ensure clarity for all users. | Pass | No colour only cues used. |
+| NFR13 | The system must store only name and school; no sensitive data. | Pass | Only name, school and answers saved. |
+| NFR14 | All data must be stored locally and not transmitted externally. | Pass | Data stored locally only. |
+| NFR15 | The application must use minimum contrast ratios compliant with WCAG AA standards. | Pass | Colours checked via tool. |
+| NFR16 | Minimum font sizes must meet accessibility guidelines for readability on standard displays. | Pass | Text checked via tool. |
+| NFR17 | The system must be tested with at least one major screen reader. | Fail | Have been unable to successfully use a screen reader. |
+| NFR18 | All warnings and errors must be written in age-appropriate plain English. | Pass | Simple plain english used. |
+| NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. | Pass | Consistent placement used. |
+| NFR20 | The documentation must include a section describing available accessibility features. | Pass | Accessibility features in user documentation. |
+
+### Automated Unit Testing Outcomes
+
+The automated tests were executed through GitHub’s CI pipeline. The results confirmed that both core functions behaved as expected:
+
+- successfully returned a non‑empty list
+- correctly created a new CSV file when one did not already exist
+
+
+<img src="doc_assets/github_actions_pass.png" alt="Figure 5: Screenshot of GitHub Actions workflow" width="896">
+
+**Figure 5:** Screenshot of GitHub Actions workflow, demonstrating 2 successfull tests.
+
+
+
+<img src="doc_assets/CI_test_output.png" alt="Figure 6: Screenshot of test output (green ticks for passing tests)" width="917">
+
+**Figure 6:** Screenshot of test output (green ticks for passing tests), showing tick for successful test.
+
+
+These visual results demonstrate that the logic of the application is stable and that future changes can be validated automatically.
+
+
+### Accessibility specific testing
+
+To check the suitablity of the colour scheme, font size and font, I utilised web based tool which aligns to the WCAG AA/AAA standards.
+
+[Colour Contrast Testing Site](https://colourcontrast.cc/?background=ffffff&foreground=b60000) — This page demonstrates that the chosen colour scheme passes AA/AAA Large and AA/AAA Normal accessibiltiy tests for colour, based on the use of font size 16 with a sans font.
+
+
+<img src="doc_assets/contrast_checks.png" alt="Figure 7: Screenshot of passing contrast checks" width="1067">
+
+**Figure 7:** Screenshot of passing contrast checks to AA and AAA WCAG standards.
+
+
+A screen reader is currently unable to read the quiz applicaiton. This is due to the way tkinter presents the gui. It is possible to modify the code to make it accessible via a screen reader, this is likely to need additional modules and should be added to the future developments pipeline.
 
 ## Documentation Section
 
 User documentation should explain how end users, such as staff within your organisation, can interact with the quiz application, whereas technical documentation should outline steps such as running tests locally and explain parts of the code.
+
+### User Documentation
+
+### Accessibility Documentation
+
+### Technical Documentation
+
 
 ## Evaluation Section
 
