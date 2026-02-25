@@ -141,7 +141,203 @@ from tkinter import messagebox
 - csv module is used to read the questions and write the results
 - tkinter module provides the GUI framework
 - messagebox module is used for pop‑up warnings and confirmation messages
+
 These modules form the foundation of the application.
+
+2. Loading Questions
+
+```
+def load_questions(filename):
+    with open(filename, newline='', encoding='utf-8') as f:
+        return list(csv.DictReader(f))
+```
+
+- Opens a CSV file containing quiz questions
+- Uses csv.DictReader to convert each row into a dictionary
+- utf-8 tells Python what character format to use when reading the file
+- Returns a list of question dictionaries
+
+This allows you to store questions externally and update them without changing the Python code.
+
+3. Saving Results
+
+```
+def save_results(filename, name, school, answers):
+    header = ["name", "school"] + [f"Q{i+1}" for i in range(len(answers))]
+
+    try:
+        with open(filename, "x", newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(header)
+    except FileExistsError:
+        pass
+
+    with open(filename, "a", newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
+        writer.writerow([name, school] + answers)
+```
+
+- Creates a header row the first time the file is created
+- Error handling prevents deletion of previous results
+- Appends each user’s name, school, and answers to the CSV file
+
+This ensures quiz results are stored persistently and can be analysed later.
+
+4. Starting the Quiz
+
+```
+def start_quiz():
+    name = name_var.get().strip()
+    school = school_var.get().strip()
+
+    if name == "" or school == "":
+        messagebox.showwarning("Missing info", "Please enter your name and school.")
+        return
+
+    show_question(0, [])
+```
+
+
+- Retrieves the user’s name and school
+- Validates that both fields are filled
+- Starts the quiz by calling show_question() with:
+- 0 → first question
+- [] → empty answer list
+
+This ensures all neccessary information is captured and displays a message prompting the user when incomplete.
+
+5. Displaying a Question
+
+```
+def show_question(question_number, answers_so_far):
+    for widget in root.winfo_children():
+        widget.destroy()
+
+    question = questions[question_number]
+
+    tk.Label(
+        root,
+        text=f"Question {question_number + 1}: {question['question']}",
+        wraplength=1000,
+        justify="left"
+    ).pack(anchor="w")
+
+    choice_var.set("")
+
+    for option in ["a", "b", "c", "d"]:
+        text = f"{option.upper()}: {question[option]}"
+        tk.Radiobutton(
+            root,
+            text=text,
+            variable=choice_var,
+            value=option,
+            wraplength=950,
+            justify="left"
+        ).pack(anchor="w")
+
+    tk.Button(
+        root,
+        text="Next",
+        command=lambda: next_question(question_number, answers_so_far)
+    ).pack(pady=10)
+```
+
+- Clears the window so each question appears on a fresh screen
+- Displays the question text
+- Creates four radio buttons for answer choices
+- Adds a Next button
+
+This function controls the main quiz interface and ensures each question is shown cleanly and consistently.
+
+6. Moving to the Next Question
+```
+def next_question(question_number, answers_so_far):
+    selected = choice_var.get()
+
+    if selected == "":
+        messagebox.showwarning("No answer", "Please select an answer.")
+        return
+
+    new_answers = answers_so_far + [selected]
+
+    if question_number + 1 < len(questions):
+        show_question(question_number + 1, new_answers)
+    else:
+        finish_quiz(new_answers)
+```
+
+- Ensures the user has selected an answer
+- Adds the selected answer to the list
+- Either: Loads the next question, or ends the quiz
+
+7. Finishing the Quiz
+
+```
+def finish_quiz(all_answers):
+    save_results("results.csv", name_var.get(), school_var.get(), all_answers)
+    messagebox.showinfo("Done", "Your answers have been saved.")
+    root.destroy()
+```
+
+- Saves the user’s answers
+- Shows a confirmation message
+- Closes the application
+
+8. Building the Main Window
+
+```
+root = tk.Tk()
+root.title("EdTech Quiz")
+root.geometry("1000x350")
+root.configure(bg="#FFFFFF")
+
+root.option_add("*Background", "#FFFFFF")
+root.option_add("*Foreground", "#B60000")
+root.option_add("*Font", "Sans-Serif 16")
+```
+
+- Creates the main Tkinter window
+- Sets:
+- Window size
+- Background colour
+- Default text colour
+- Default font
+
+This ensures a consistent visual style.
+
+9. Welcome Screen and User Inputs
+
+```
+tk.Label(
+    root,
+    text="Welcome to the EdTech Quiz!\n\nPlease enter your name and school below, then click the Start Quiz button.\nYou will then be asked six questions, select one answer per question and confirm by clicking Next.",
+    wraplength=950,
+    justify="center"
+).pack(pady=20)
+
+tk.Label(root, text="Enter your name:").pack()
+tk.Entry(root, textvariable=name_var).pack()
+
+tk.Label(root, text="Enter your school:").pack()
+tk.Entry(root, textvariable=school_var).pack()
+
+tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
+```
+
+- Displays a welcome message and instructions for completion
+- Provides input fields for name and school
+- Adds a button to begin the quiz
+
+This is the first screen the user sees.
+
+10. Main Loop
+
+```
+root.mainloop()
+```
+
+- Starts Tkinter’s event loop
+- Keeps the window open and responsive
 
 
 ## Testing Section
