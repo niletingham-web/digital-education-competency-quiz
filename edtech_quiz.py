@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     root.title("EdTech Quiz")
-    root.geometry("1000x300") 
+    root.geometry("1000x325") 
     root.configure(bg="#FFFFFF") 
 
     root.option_add("*Background", "#FFFFFF")
@@ -86,6 +86,8 @@ if __name__ == "__main__":
     name_var = tk.StringVar()
     school_var = tk.StringVar()
     choice_var = tk.StringVar()
+
+    tk.Label(root,text="Welcome to the EdTech Quiz!\n\nPlease enter your details below to begin.",wraplength=900,justify="center").pack(pady=20)
 
     tk.Label(root, text="Enter your name:").pack()
     tk.Entry(root, textvariable=name_var).pack()
