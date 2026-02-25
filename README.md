@@ -130,6 +130,18 @@ Supporting this main class are two focused helper classes: QuestionLoader, respo
 
 In this section, include relevant code blocks using triple backticks (```) to format your code clearly. Explain how your application works by describing the main parts of your code, such as important functions, classes, or modules. Provide enough detail to demonstrate your understanding of how each part contributes to the overall functionality. There is no word limit; focus on clarity and completeness.
 
+1. Importing Modules
+
+```import csv
+import tkinter as tk
+from tkinter import messagebox```
+
+- csv — used to read the questions and write the results
+- tkinter — provides the GUI framework
+- messagebox — used for pop‑up warnings and confirmation messages
+These modules form the foundation of the application.
+
+
 ## Testing Section
 
 Explain your approach to testing your digital product, demonstrating a systematic and strategic approach. Address the following topics:
