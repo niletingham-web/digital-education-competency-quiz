@@ -781,4 +781,11 @@ This event‑driven flow is controlled entirely by Tkinter’s main loop, which 
 
 ## Evaluation Section
 
-The evaluation section should explain what went well during the development of the project and what could have been improved. The evaluation section should be written in a genuine, reflective tone. As the README follows the conventions of software documentation, hyperlinks should be used for references instead of Harvard referencing.
+Overall, this project has been a valuable learning experience, especially as someone still developing confidence with Python. Getting started was the hardest part; I didn’t want to design something beyond my abilities, but I also wanted the MVP to feel meaningful. Creating a small dummy application early on helped me understand what I could realistically build and gave me a clearer foundation before committing to the full design.
+
+The UX activities were particularly helpful. As I mapped out user needs and thought more carefully about potential stakeholders, the purpose of the application evolved and became more focused. The Figma wireframe also proved useful, giving me a visual reference that made the Tkinter build more structured and consistent.
+
+Accessibility was a major priority throughout, and I made a conscious effort to embed it into the requirements, testing, and documentation. I’m pleased with how accessible the final product is, even though the lack of full screen‑reader compatibility remains a limitation I’d like to revisit. The class diagram was simple due to the scale of the project, but the exercise still helped clarify dependencies and structure.
+
+Working through the development and technical documentation strengthened my understanding of the code, and the testing phase was reassuring. Both manual and automated tests showed that the application met the design objectives, with the screen‑reader issue being the main exception. The final MVP achieves what I set out to build, and I believe the intended users would be able to navigate it confidently using the supporting documentation. It has been an enjoyable project, and I can see myself returning to improve it further.
+
