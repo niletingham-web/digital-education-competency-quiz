@@ -36,13 +36,15 @@ def show_question(question_number, answers_so_far):
 
     question = questions[question_number]
 
-    tk.Label(root, text=f"Question {question_number + 1}: {question['question']}").pack(anchor="w")
+    tk.Label(root,text=f"Question {question_number + 1}: {question['question']}",wraplength=1000,justify="left").pack(anchor="w")
+
 
     choice_var.set("")
 
     for option in ["a", "b", "c", "d"]:
         text = f"{option.upper()}: {question[option]}"
-        tk.Radiobutton(root, text=text, variable=choice_var, value=option).pack(anchor="w")
+        tk.Radiobutton(root,text=text,variable=choice_var,value=option,wraplength=950,justify="left").pack(anchor="w")
+
 
     tk.Button(
         root,
@@ -74,6 +76,12 @@ if __name__ == "__main__":
 
     root = tk.Tk()
     root.title("EdTech Quiz")
+    root.geometry("1000x300") 
+    root.configure(bg="#FFFFFF") 
+
+    root.option_add("*Background", "#FFFFFF")
+    root.option_add("*Foreground", "#B60000")
+    root.option_add("*Font", "Sans-Serif 16")
 
     name_var = tk.StringVar()
     school_var = tk.StringVar()
