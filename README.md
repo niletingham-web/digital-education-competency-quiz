@@ -306,9 +306,9 @@ tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
 This is the first screen the user sees.
 
 
-## 🔬 Testing Section 🔬 - CONSIDER WRITING SOMETHING ABOUT ALPHA/BETA TESTING AND PERSPECTIVES. ALSO ADD EVIDENANCE FOR A SAMPLE OF TESTS.
+## 🔬 Testing Section 🔬 -  ADD EVIDENANCE FOR A SAMPLE OF TESTS.
 
-To ensure that my applicaton was reliable, accessible, and functionally complete, I adopted a systematic and strategic approach to testing. My testing process combined manual testing against the functional and non‑functional requirements with automated unit testing executed through a continuous integration (CI) pipeline on GitHub. Using both methods allowed me to validate the behaviour of the application from two complementary perspectives: manual testing confirmed that the user experience and interface behaved as intended, while automated unit tests verified the correctness of the underlying logic in a repeatable and objective way.
+I adopted a structured approach to testing during the alpha phase to ensure the application was reliable, accessible, and functionally complete, combining manual checks against functional and non‑functional requirements with automated unit tests run through a CI pipeline. This blend of methods validated both the user experience and the underlying logic, and a further round of beta testing will be carried out during MVP development to confirm readiness before release into production
 
 ### 🔧 Manual Testing 🔧
 
@@ -382,7 +382,7 @@ The table below summarises the results of my manual testing against each functio
 | FR9  | The application must move to the next question after an answer is submitted. | Pass | Next button progresses to next question. |
 | FR10 | The application must record all selected answers in order. | Pass | Answers stored in the order answered. |
 | FR11 | The application must detect when the final question has been answered. | Pass | Message states when complete. |
-| FR12 | The application must save the participant’s name, school, and answers to a CSV file. | Pass | Results saved to resutls.csv file. |
+| FR12 | The application must save the participant’s name, school, and answers to a CSV file. | Pass | Results saved to results.csv file. |
 | FR13 | The application must create the results file with a header if it does not already exist. | Pass | File is created with a header. |
 | FR14 | The application must append new results without overwriting previous entries. | Pass | New submissions are appended. |
 | FR15 | The application must show warnings for missing information or missing answers. | Pass | Warning messages functional. |
@@ -418,6 +418,38 @@ Non-Functional Requirements
 | NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. | Pass | Consistent placement used. |
 | NFR20 | The documentation must include a section describing available accessibility features. | Pass | Accessibility features in user documentation. |
 
+### ✨ Manual Testing - Sample Outcomes ✨
+
+<img src="doc_assets/FR5_test.png" alt="Figure 5: A screen showing a question with 4 multiple-choice answers" width="750">
+
+**Figure 5:** FR5 Test - Screen showing a single question.
+
+
+<img src="doc_assets/FR10_test.png" alt="Figure 6: A snip of a CSV showing ordered data" width="420">
+
+**Figure 6:** FR10 Test - CSV record showing data stored in order of submission.
+
+
+<img src="doc_assets/FR15_test.png" alt="Figure 7: A warning messgage for missing information." width="283">
+
+**Figure 7:** FR15 Test - A warning messgage for missing information.
+
+
+<img src="doc_assets/NFR1_test.png" alt="Figure 8: A screen showing no colour defined user inputs." width="1010">
+
+**Figure 8:** NFR1 Test - Welcome screen of application showing clear instructions.
+
+
+<img src="doc_assets/NFR12_test.png" alt="Figure 9: A screen showing no colour defined user inputs." width="1011">
+
+**Figure 9:** NRF12 Test - A screen showing no colour defined user inputs.
+
+
+<img src="doc_assets/NFR15-16_test.png" alt="Figure 10: Screenshot of passing contrast checks" width="1067">
+
+**Figure 10:** NFR15 & 16 - Screenshot of passing contrast checks to AA and AAA WCAG standards. Test available here [Colour Contrast Site](https://colourcontrast.cc/?background=ffffff&foreground=b60000)
+
+
 ### ⚙️ Automated Unit Testing Outcomes ⚙️
 
 The automated tests were executed through GitHub’s CI pipeline. The results confirmed that both core functions behaved as expected:
@@ -439,20 +471,6 @@ The automated tests were executed through GitHub’s CI pipeline. The results co
 
 These visual results demonstrate that the logic of the application is stable and that future changes can be validated automatically.
 
-
-### 😎 Accessibility Specific Testing 😎
-
-To check the suitablity of the colour scheme, font size and font, I utilised web based tool which aligns to the WCAG AA/AAA standards.
-
-[Colour Contrast Testing Site](https://colourcontrast.cc/?background=ffffff&foreground=b60000) — This link demonstrates that the chosen colour scheme passes AA/AAA Large and AA/AAA Normal accessibiltiy tests for colour, based on the use of font size 16 with a sans font.
-
-
-<img src="doc_assets/contrast_checks.png" alt="Figure 7: Screenshot of passing contrast checks" width="1067">
-
-**Figure 7:** Screenshot of passing contrast checks to AA and AAA WCAG standards.
-
-
-A screen reader is currently unable to read the quiz applicaiton. This is due to the way tkinter presents the gui. It is possible to modify the code to make it accessible via a screen reader, this is likely to need additional modules and should be added to the future developments pipeline.
 
 ## 📖 Documentation Section 📖
 
