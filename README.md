@@ -306,7 +306,7 @@ tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
 This is the first screen the user sees.
 
 
-## 🔬 Testing Section 🔬 -  ADD EVIDENANCE FOR A SAMPLE OF TESTS.
+## 🔬 Testing Section 🔬
 
 I adopted a structured approach to testing during the alpha phase to ensure the application was reliable, accessible, and functionally complete, combining manual checks against functional and non‑functional requirements with automated unit tests run through a CI pipeline. This blend of methods validated both the user experience and the underlying logic, and a further round of beta testing will be carried out during MVP development to confirm readiness before release into production
 
@@ -697,7 +697,7 @@ These tests are also executed automatically through a GitHub continuous integrat
 
 ### 👷‍♂️ Technical Overview of the Code 👷‍♂️
 
-The quiz application is built using two core Python modules — Tkinter and csv — supported by a small set of focused functions that separate data handling from the graphical interface. This structure keeps the program maintainable, testable, and easy to extend.
+The quiz application is built using two core Python modules (Tkinter and csv) supported by a small set of focused functions that separate data handling from the graphical interface. This structure keeps the program maintainable, testable, and easy to extend.
 
 ### 💻 Tkinter (GUI Framework) 💻
 
