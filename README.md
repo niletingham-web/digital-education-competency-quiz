@@ -18,7 +18,7 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 
 ### 👥 User Personas 👥
 
-**Figure 1:** Below is my User Persona Map. I have created six personas that can be broadly applied to individuals working across the education sector. The names have been selected carefully to avoid implying bias related to gender, age or ethnicity. Each persona includes an overarching tagline and a more detailed description. Developing this User Persona Map is valuable because it helps shape the design of my application and can support the DfE in planning future training and guidance for schools.
+I’ve created six broadly applicable education‑sector personas, each with a carefully neutral name, a clear tagline, and a detailed description, forming a User Persona Map that strengthens my application’s design and supports the DfE in planning future training and guidance for schools.
 
 <img src="doc_assets/User_Personas.png" alt="Figure 1: A User Persona Map showing 6 fictional personas designed to replicate typical school capabilities" width="400">
 
@@ -27,7 +27,7 @@ I’ve developed a user persona map and a persona matrix to capture the range of
 
 ### 👨‍👩‍👦‍👦 Personas Matrix 👨‍👩‍👦‍👦
 
-**Figure 2:** The next item is the User Persona Matrix. This takes the personality profiles from the map and plots how my application, alongside a wider training and guidance package, could support the development of each persona. The horizontal axis represents confidence, while the vertical axis represents actual capability. Each persona is shown using an emoji placed at the point that best reflects their current position, with an arrow indicating the direction in which they could develop in the short to medium term. The overall aim is to move more personas toward higher levels of confidence and capability. This approach also recognises the gap that can exist between perceived and actual ability. For example, the “Cautious User” is highly capable but unlikely to reach the highest levels of confidence due to their naturally cautious disposition. Similarly, the “Confident Collaborator” appears to lose confidence as capability increases; this reflects the idea that greater expertise often brings greater awareness of risk, tempering overconfidence.
+My capability–confidence matrix shows how the application, supported by wider training and guidance, can help each persona progress by plotting their current confidence and actual capability, highlighting gaps between perceived and actual ability. It also captures nuances such as the “Cautious User,” who remains capable but less confident, and the “Confident Collaborator,” whose confidence dips as deeper expertise brings greater awareness of risk.
 
 <img src="doc_assets/Persona_Matrix.png" alt="Figure 2: A Persona Matrix, plotting typical confidence vs capability, along with trends for improvement" width="1500">
 
@@ -100,12 +100,6 @@ Non-Functional Requirements
 | NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. |
 | NFR20 | The documentation must include a section describing available accessibility features. |
 
-### 🦻 Accessibility Assessment 🦻
-
-The functional and non-functional requirements work together to create an experience that is accessible, predictable, and inclusive for a wide range of users. Many of the functional requirements directly reduce cognitive load and support assistive technologies. For example, collecting only essential information (FR1–FR3) keeps the onboarding process simple, while a single-question presentation (FR5) and enforced answer selection (FR7–FR8) help users focus on one task at a time. Keyboard-only navigation (FR18), clear input outlines (FR19), and screen reader-friendly text (FR20) ensure that participants who rely on assistive tools can interact with the quiz without barriers. The absence of time limits (FR21) is particularly important for users with processing, motor, or attention-related needs, allowing them to work at their own pace. Clear warnings and confirmations (FR15–FR16) also support users who benefit from explicit feedback or who may struggle with ambiguity.
-
-The non-functional requirements reinforce this foundation by ensuring the interface remains readable, consistent, and compatible with accessibility standards. Readable labels and minimum contrast ratios (NFR2, NFR15–NFR16) support users with low vision, while avoiding colour-only cues (NFR12) ensures that information is not lost for colour blind participants. Compatibility with standard Tkinter widgets (NFR11) and testing with a screen reader (NFR17) help guarantee that assistive technologies can interpret the interface reliably. Requirements such as simple design (NFR1), consistent spacing (NFR19), and plain-English warnings (NFR18) reduce cognitive load and make the quiz approachable for younger users or those with learning differences. Local data storage (NFR13–NFR14) also protects privacy by limiting the amount and sensitivity of information collected. Together, these requirements create a quiz environment that is accessible by design rather than as an afterthought.
-
 ### 🌐 Tech Stack Online 🌐
 
 - [Python 3](https://docs.python.org/3/) — Core programming language. Used for all application logic, file handling, and user interaction.
@@ -113,7 +107,7 @@ The non-functional requirements reinforce this foundation by ensuring the interf
 - [csv](https://docs.python.org/3/library/csv.html) — Local data storage in CSV format. Stores quiz questions, answers and user data.
 - [unittest](https://docs.python.org/3/library/unittest.html) — Automated unit testing. Used for smoke tests and functional checks of pure functions.
 
-### 📝 Code Design Document 📝
+### 📝 Code Design Document 📝 - THIS SECTION NEEDS FURTHER REVIEW, ENSURE TKINTER INHERITANCE IS SHOWN IN CLASS DIAGRAM.
 
 The conceptual UML Class Diagram below demonstrates the overall structure of the quiz application. At its centre is the edtech_quiz class, which manages the quiz flow, user interface state, and user inputs. It holds the questions, the Tkinter window, and the variables that track the user’s name, school, and answer choices. Its methods represent the lifecycle of the quiz, from starting it to showing each question, moving forward, and finally completing the session.
 
@@ -127,21 +121,7 @@ Supporting this main class are two focused helper classes: QuestionLoader, respo
 
 This section examines the code behind my quiz application, explaining the purpose and behaviour of each part of the program to show how the different components work together to create the full functionality.
 
-1. Importing Modules
-
-```
-import csv
-import tkinter as tk
-from tkinter import messagebox
-```
-
-- csv module is used to read the questions and write the results
-- tkinter module provides the GUI framework
-- messagebox module is used for pop‑up warnings and confirmation messages
-
-These modules form the foundation of the application.
-
-2. Loading Questions
+- Loading Questions
 
 ```
 def load_questions(filename):
@@ -156,7 +136,7 @@ def load_questions(filename):
 
 This allows you to store questions externally and update them without changing the Python code.
 
-3. Saving Results
+- Saving Results
 
 ```
 def save_results(filename, name, school, answers):
@@ -180,7 +160,7 @@ def save_results(filename, name, school, answers):
 
 This ensures quiz results are stored persistently and can be analysed later.
 
-4. Starting the Quiz
+- Starting the Quiz
 
 ```
 def start_quiz():
@@ -203,7 +183,7 @@ def start_quiz():
 
 This ensures all neccessary information is captured and displays a message prompting the user when incomplete.
 
-5. Displaying a Question
+- Displaying a Question
 
 ```
 def show_question(question_number, answers_so_far):
@@ -246,7 +226,7 @@ def show_question(question_number, answers_so_far):
 
 This function controls the main quiz interface and ensures each question is shown cleanly and consistently.
 
-6. Moving to the Next Question
+- Moving to the Next Question
 ```
 def next_question(question_number, answers_so_far):
     selected = choice_var.get()
@@ -267,7 +247,7 @@ def next_question(question_number, answers_so_far):
 - Adds the selected answer to the list
 - Either: Loads the next question, or ends the quiz
 
-7. Finishing the Quiz
+- Finishing the Quiz
 
 ```
 def finish_quiz(all_answers):
@@ -280,7 +260,7 @@ def finish_quiz(all_answers):
 - Shows a confirmation message
 - Closes the application
 
-8. Building the Main Window
+- Building the Main Window
 
 ```
 root = tk.Tk()
@@ -302,7 +282,7 @@ root.option_add("*Font", "Sans-Serif 16")
 
 This ensures a consistent visual style.
 
-9. Welcome Screen and User Inputs
+- Welcome Screen and User Inputs
 
 ```
 tk.Label(
@@ -327,17 +307,8 @@ tk.Button(root, text="Start Quiz", command=start_quiz).pack(pady=10)
 
 This is the first screen the user sees.
 
-10. Main Loop
 
-```
-root.mainloop()
-```
-
-- Starts Tkinter’s event loop
-- Keeps the window open and responsive
-
-
-## 🔬 Testing Section 🔬
+## 🔬 Testing Section 🔬 - CONSIDER WRITING SOMETHING ABOUT ALPHA/BETA TESTING AND PERSPECTIVES. ALSO ADD EVIDENANCE FOR A SAMPLE OF TESTS.
 
 To ensure that my applicaton was reliable, accessible, and functionally complete, I adopted a systematic and strategic approach to testing. My testing process combined manual testing against the functional and non‑functional requirements with automated unit testing executed through a continuous integration (CI) pipeline on GitHub. Using both methods allowed me to validate the behaviour of the application from two complementary perspectives: manual testing confirmed that the user experience and interface behaved as intended, while automated unit tests verified the correctness of the underlying logic in a repeatable and objective way.
 
@@ -368,10 +339,10 @@ The automated tests focused on two critical functions: loading questions from a 
 Below is the unit testing script used in the CI pipeline:
 
 ```
-import os
-import unittest
-from edtech_quiz import load_questions
-from edtech_quiz import save_results
+import os # to facilitate OS level funtions
+import unittest # # provides the unit testing framework
+from edtech_quiz import load_questions # question function under test
+from edtech_quiz import save_results # results function under test
 
 class TestQuiz(unittest.TestCase):
 
@@ -756,7 +727,7 @@ Finishing the Quiz:
 
 finish_quiz() saves all collected answers, shows a confirmation message, and closes the application cleanly.
 
-### 🧪 How the Application Runs 🧪
+### 🧪 How the Application Runs 🧪 - CHANGE THIS TO A FLOWCHART
 
 When the script is executed:
 
