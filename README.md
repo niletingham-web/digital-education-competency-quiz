@@ -107,13 +107,11 @@ Non-Functional Requirements
 - [csv](https://docs.python.org/3/library/csv.html) — Local data storage in CSV format. Stores quiz questions, answers and user data.
 - [unittest](https://docs.python.org/3/library/unittest.html) — Automated unit testing. Used for smoke tests and functional checks of pure functions.
 
-### 📝 Code Design Document 📝 - THIS SECTION NEEDS FURTHER REVIEW, ENSURE TKINTER INHERITANCE IS SHOWN IN CLASS DIAGRAM.
+### 📝 Code Design Document 📝
 
-The conceptual UML Class Diagram below demonstrates the overall structure of the quiz application. At its centre is the edtech_quiz class, which manages the quiz flow, user interface state, and user inputs. It holds the questions, the Tkinter window, and the variables that track the user’s name, school, and answer choices. Its methods represent the lifecycle of the quiz, from starting it to showing each question, moving forward, and finally completing the session.
+The quiz sits as a single application layer that makes use of a grouped set of Tkinter components, including the main window, widgets, variables, and message boxes. It highlights that the script itself defines no classes but relies entirely on these Tkinter classes to build and control the user interface.
 
-Supporting this main class are two focused helper classes: QuestionLoader, responsible for retrieving or preparing the questions, and ResultSaver, which handles storing or exporting the final results. The diagram shows that the quiz class depends on these helpers but does not inherit from them, emphasising a clean separation of responsibilities. The diagram demonstrates a well‑structured, maintainable design where each class has a clear purpose, and the main controller orchestrates the quiz experience.
-
-<img src="doc_assets/class_diagram.png" alt="Figure 4: A Conceptual UML Class Diagram" width="196">
+<img src="doc_assets/class_diagram.png" alt="Figure 4: A Conceptual UML Class Diagram" width="213">
 
 **Figure 4:** Conceptual UML Class Diagram
 
