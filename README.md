@@ -38,7 +38,7 @@ My capability–confidence matrix shows how the application, supported by wider 
 
 **Figure 3:** A wireframe was produced during the initial planning phase to outline how users would move through the quiz. It maps the sequence of interactions, beginning with entering name and school, progressing through each question, and concluding with the submission confirmation. Included in the design are indicative error-handling prompts.
 
-Its purpose was to organise the arrangement of screens, identify where validation should occur, and establish the overall navigation logic before any coding took place. The wireframe focuses purely on flow and interaction rather than visual styling, acting as a structural guide rather than a final design
+Its purpose was to organise the arrangement of screens, identify where validation should occur, and establish the overall navigation logic before any coding took place. The wireframe focuses purely on flow and interaction rather than visual styling, acting as a structural guide rather than a final design.
 
 [Link to live Figma prototype](https://www.figma.com/proto/mCGgaxD7YMgP6cBQVEi0pv/EdTech-Quiz-Prototype?t=HrJ1jBI9K3BsOJIG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-6&starting-point-node-id=1%3A6) — An interactive prototype quiz application, created in Figma
 
@@ -54,7 +54,7 @@ Functional Requirements
 | ID   | Requirement |
 |------|-------------|
 | FR1  | The application must allow a participant to enter their name. |
-| FR2  | The application must allow a participant to enter their school name. |
+| FR2  | The application must allow a participant to enter their school's name. |
 | FR3  | The application must validate that both fields are completed before starting the quiz. |
 | FR4  | The application must load quiz questions from a CSV file. |
 | FR5  | The application must display one question at a time. |
@@ -91,7 +91,7 @@ Non-Functional Requirements
 | NFR10 | The system must allow unit tests to import functions without launching the GUI. |
 | NFR11 | The system must use standard Tkinter widgets compatible with assistive technologies. |
 | NFR12 | The system must avoid colour-only cues to ensure clarity for all users. |
-| NFR13 | The system must store only name and school; no sensitive data. |
+| NFR13 | The system must store only name and school, no sensitive data. |
 | NFR14 | All data must be stored locally and not transmitted externally. |
 | NFR15 | The application must use minimum contrast ratios compliant with WCAG AA standards. |
 | NFR16 | Minimum font sizes must meet accessibility guidelines for readability on standard displays. |
@@ -179,7 +179,7 @@ def start_quiz():
 - 0 → first question
 - [] → empty answer list
 
-This ensures all neccessary information is captured and displays a message prompting the user when incomplete.
+This ensures all necessary information is captured and displays a message prompting the user when incomplete.
 
 - Displaying a Question
 
@@ -337,7 +337,7 @@ The automated tests focused on two critical functions: loading questions from a 
 Below is the unit testing script used in the CI pipeline:
 
 ```
-import os # to facilitate OS level funtions
+import os # to facilitate OS level functions
 import unittest # # provides the unit testing framework
 from edtech_quiz import load_questions # question function under test
 from edtech_quiz import save_results # results function under test
@@ -372,7 +372,7 @@ The table below summarises the results of my manual testing against each functio
 | ID   | Requirement | Result | Notes |
 |------|-------------|--------|-------|
 | FR1  | The application must allow a participant to enter their name. | Pass | Field for entering name. |
-| FR2  | The application must allow a participant to enter their school name. | Pass | Field for entering school. |
+| FR2  | The application must allow a participant to enter their school's name. | Pass | Field for entering school. |
 | FR3  | The application must validate that both fields are completed before starting the quiz. | Pass | Message appears if incomplete. |
 | FR4  | The application must load quiz questions from a CSV file. | Pass | Questions loaded from questions.csv file. |
 | FR5  | The application must display one question at a time. | Pass | One question is displayed at a time. |
@@ -406,15 +406,15 @@ Non-Functional Requirements
 | NFR7  | The application must run on Windows systems with Python and Tkinter installed. | Pass | Runs on Python 3 with Tkinter module. |
 | NFR8  | The application must not require internet access. | Pass | App runs on local storage. |
 | NFR9  | Pure logic functions must be separated from GUI code. | Pass | Logic functions feature before GUI in code. |
-| NFR10 | The system must allow unit tests to import functions without launching the GUI. | Pass | test_smoke.py runs seperately. |
+| NFR10 | The system must allow unit tests to import functions without launching the GUI. | Pass | test_smoke.py runs separately. |
 | NFR11 | The system must use standard Tkinter widgets compatible with assistive technologies. | Partial | Standard TKinter used, issues with screen reader. |
 | NFR12 | The system must avoid colour-only cues to ensure clarity for all users. | Pass | No colour only cues used. |
-| NFR13 | The system must store only name and school; no sensitive data. | Pass | Only name, school and answers saved. |
+| NFR13 | The system must store only name and school, no sensitive data. | Pass | Only name, school and answers saved. |
 | NFR14 | All data must be stored locally and not transmitted externally. | Pass | Data stored locally only. |
 | NFR15 | The application must use minimum contrast ratios compliant with WCAG AA standards. | Pass | Colours checked via tool. |
 | NFR16 | Minimum font sizes must meet accessibility guidelines for readability on standard displays. | Pass | Text checked via tool. |
 | NFR17 | The system must be tested with at least one major screen reader. | Fail | Have been unable to successfully use a screen reader. |
-| NFR18 | All warnings and errors must be written in age-appropriate plain English. | Pass | Simple plain english used. |
+| NFR18 | All warnings and errors must be written in age-appropriate plain English. | Pass | Simple plain English used. |
 | NFR19 | Spacing and alignment must remain consistent across all screens to reduce cognitive load. | Pass | Consistent placement used. |
 | NFR20 | The documentation must include a section describing available accessibility features. | Pass | Accessibility features in user documentation. |
 
@@ -430,9 +430,9 @@ Non-Functional Requirements
 **Figure 6:** FR10 Test - CSV record showing data stored in order of submission.
 
 
-<img src="doc_assets/FR15_test.png" alt="Figure 7: A warning messgage for missing information." width="283">
+<img src="doc_assets/FR15_test.png" alt="Figure 7: A warning message for missing information." width="283">
 
-**Figure 7:** FR15 Test - A warning messgage for missing information.
+**Figure 7:** FR15 Test - A warning message for missing information.
 
 
 <img src="doc_assets/NFR1_test.png" alt="Figure 8: A screen showing no colour defined user inputs." width="1010">
@@ -460,13 +460,13 @@ The automated tests were executed through GitHub’s CI pipeline. The results co
 
 <img src="doc_assets/github_actions_pass.png" alt="Figure 5: Screenshot of GitHub Actions workflow" width="896">
 
-**Figure 5:** Screenshot of GitHub Actions workflow, demonstrating 2 successfull tests.
+**Figure 5:** Screenshot of GitHub Actions workflow, demonstrating 2 successful tests.
 
 
 
 <img src="doc_assets/CI_test_output.png" alt="Figure 6: Screenshot of test output (green ticks for passing tests)" width="917">
 
-**Figure 6:** Screenshot of test output (green ticks for passing tests), showing tick for successful test.
+**Figure 6:** Screenshot of test output (green ticks for passing tests), showing a tick for a successful test.
 
 
 These visual results demonstrate that the logic of the application is stable and that future changes can be validated automatically.
@@ -493,7 +493,7 @@ Step‑by‑step instructions
 - Click Install Now.
 - Wait for the installation to complete, then close the installer.
 
-Check that Python installed correctly
+Check that Python is installed correctly.
 From the start menu, open Command Prompt (Windows) and type:
 py --version
 
@@ -527,7 +527,7 @@ git clone https://github.com/niletingham-web/digital-education-competency-quiz
 Inside the project folder, you should see:
 - edtech_quiz.py - The main quiz file
 - questions.csv - The quiz questions
-- Any additional files such as README or test scripts
+- Any additional files, such as README or test scripts
 
 Do not modify the folder structure or move files between folders.
 
@@ -536,7 +536,7 @@ Do not modify the folder structure or move files between folders.
 Once Python is installed and the files are downloaded, you can run the quiz.
 
 Step‑by‑step
-- Navigate to the start menu and open Command Prompt.
+- Navigate to the Start menu and open Command Prompt.
 - Navigate to the folder where the quiz is stored by entering the command below:
 
 ```
@@ -560,7 +560,7 @@ This means Python wasn’t added to PATH.
 
 Reinstall Python and ensure Add Python to PATH is ticked.
 
-The quiz window doesn’t open
+The quiz window doesn’t open.
 
 Check that Tkinter is installed. It comes with Python by default, but you can verify by running:
 ```
@@ -576,7 +576,7 @@ For any other errors, attempt to download a fresh copy of the code from the repo
 
 On the welcome screen:
 - Type your name into the first text box.
-- Type your school name into the second text box.
+- Type your school's name into the second text box.
 - Click Start Quiz to begin.
 
 If either field is left blank, the quiz will show a message asking you to complete both fields before continuing.
@@ -632,7 +632,7 @@ The EdTech Quiz includes several built‑in accessibility features to support a 
 
 These features help ensure the quiz is usable, accessible, and comfortable for as many participants as possible.
 
-At present, the application does not work universally with Screen‑readers. All buttons, labels, and inputs use standard Tkinter widgets so in future releases, it should be possible to introduce screen reader navigation.
+At present, the application does not work universally with Screen‑readers. All buttons, labels, and inputs use standard Tkinter widgets, so in future releases, it should be possible to introduce screen reader navigation.
 
 ### 👨🏻‍🔧 Technical Documentation 👨🏻‍🔧
 
@@ -645,7 +645,7 @@ The project includes automated unit tests written using Python’s built‑in un
 Prerequisites
 - Python 3 installed
 - The project folder downloaded or cloned
-- The questions.csv file present in the same directory as the quiz script
+- The questions.csv file is present in the same directory as the quiz script
 
 Steps to run tests
 - Open Command Prompt via Start menu
@@ -758,7 +758,7 @@ Overall, this project has been a valuable learning experience, especially as som
 
 The UX activities were particularly helpful. As I mapped out user needs and thought more carefully about potential stakeholders, the purpose of the application evolved and became more focused. The Figma wireframe also proved useful, giving me a visual reference that made the Tkinter build more structured and consistent.
 
-Accessibility was a major priority throughout, and I made a conscious effort to embed it into the requirements, testing, and documentation. I’m pleased with how accessible the final product is, even though the lack of full screen‑reader compatibility remains a limitation I’d like to revisit. The class diagram was simple due to the scale of the project, but the exercise still helped clarify dependencies and structure.
+Accessibility was a major priority throughout, and I made a conscious effort to embed it into the requirements, testing, and documentation. I’m pleased with how accessible the final product is, even though the lack of screen‑reader compatibility remains a limitation I’d like to revisit. The class diagram was simple due to the scale of the project, but the exercise still helped clarify dependencies and structure.
 
 Working through the development and technical documentation strengthened my understanding of the code, and the testing phase was reassuring. Both manual and automated tests showed that the application met the design objectives, with the screen‑reader issue being the main exception. The final MVP achieves what I set out to build, and I believe the intended users would be able to navigate it confidently using the supporting documentation. It has been an enjoyable project, and I can see myself returning to improve it further.
 

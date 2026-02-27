@@ -1,5 +1,5 @@
-import os # to facilitate OS level funtions
-import unittest # # provides the unit testing framework
+import os # to facilitate OS level functions
+import unittest # provides the unit testing framework
 from edtech_quiz import load_questions # question function under test
 from edtech_quiz import save_results # results function under test
 
