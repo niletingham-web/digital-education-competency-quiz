@@ -747,9 +747,9 @@ finish_quiz() saves all collected answers, shows a confirmation message, and clo
 
 Below is a visual summary of how the quiz moves from loading questions, through user input and answering, to saving results and closing the application.
 
-<img src="doc_assets/application_flowchart.png" alt="Figure 4: A Flowchart demonstrating how the application runs" width="500">
+<img src="doc_assets/application_flowchart.png" alt="Figure 11: A Flowchart demonstrating how the application runs" width="500">
 
-**Figure 4:** Application Operational Flowchart
+**Figure 11:** Application Operational Flowchart
 
 
 ## 📈 Evaluation Section 📈
