@@ -725,27 +725,13 @@ Finishing the Quiz:
 
 finish_quiz() saves all collected answers, shows a confirmation message, and closes the application cleanly.
 
-### 🧪 How the Application Runs 🧪 - CHANGE THIS TO A FLOWCHART
+### 🧪 How the Application Runs 🧪
 
-When the script is executed:
+Below is a visual summary of how the quiz moves from loading questions, through user input and answering, to saving results and closing the application.
 
-- Questions are loaded from the CSV file.
-- The Tkinter window is created, styled, and populated with:
-- A welcome message
-- Name and school input fields
-- A Start button
-- When the user clicks Start Quiz, the program:
-- Validates the inputs
-- Displays the first question
-- Each click of Next:
-- Validates the answer
-- Loads the next question or ends the quiz
-- When the quiz ends:
-- Results are written to a CSV file
-- A confirmation message appears
-- The window closes
+<img src="doc_assets/application_flowchart.png" alt="Figure 4: A Flowchart demonstrating how the application runs" width="500">
 
-This event‑driven flow is controlled entirely by Tkinter’s main loop, which listens for user actions and triggers the appropriate functions.
+**Figure 4:** Application Operational Flowchart
 
 
 ## 📈 Evaluation Section 📈
